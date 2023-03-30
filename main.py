@@ -1,13 +1,15 @@
-import os
-import glob
-import tensorflow as tf
-import numpy as np
-from tqdm import tqdm
-import time
-import matplotlib.pyplot as plt
-import psutil
-import pandas as pd
 import datetime
+import glob
+import os
+import time
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import psutil  # for CPU and memory usage monitoring
+import tensorflow as tf
+from tqdm import tqdm  # for progress bar
+
 
 # define function to convert excel files to csv and txt files
 def convert_files(folder_path):
