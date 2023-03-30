@@ -1,35 +1,47 @@
-import pandas as pd
 import os
+import pandas as pd
 import datetime
 
-data_dir = 'Data/'
+# define function to convert excel files to csv and txt files
+def convert_files(folder_path):
+    # initialize counters for number of files converted
+    num_csv = 0
+    num_txt = 0
 
-# Recursively get a list of all Excel files in the data directory and its subdirectories
-excel_files = []
-for subdir, dirs, files in os.walk(data_dir):
-    for file in files:
-        if file.endswith('.xlsx') or file.endswith('.xls'):
-            excel_files.append(os.path.join(subdir, file))
+    # loop through all subdirectories and files in the given folder path
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            # check if file is an excel file
+            if file.endswith(".xls") or file.endswith(".xlsx"):
+                # create file paths for input and output files
+                input_path = os.path.join(root, file)
+                output_path_csv = os.path.join(root, file.split('.')[0] + '.csv')
+                output_path_txt = os.path.join(root, file.split('.')[0] + '.txt')
 
-# Check if there are any Excel files to convert
-if not excel_files:
-    print(f'No Excel files found in {data_dir} and its subdirectories.')
-else:
-    # Convert all Excel files to CSV and TXT files with the same name
-    num_files_converted = 0
-    for file in excel_files:
-        excel_path = file
-        base_path = os.path.splitext(file)[0]
-        csv_path = base_path + '.csv'
-        txt_path = base_path + '.txt'
-        if file.endswith('.xlsx'):
-            df = pd.read_excel(excel_path)
-        elif file.endswith('.xls'):
-            df = pd.read_excel(excel_path, engine='xlrd')
-        df.to_csv(csv_path, index=False)
-        df.to_csv(txt_path, index=False, sep='\t')
-        current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        print(f'{current_time}: Converted {excel_path} to {csv_path} and {txt_path}')
-        num_files_converted += 1
+                try:
+                    # read excel file into pandas dataframe
+                    df = pd.read_excel(input_path)
+                    
+                    # write dataframe to csv file
+                    df.to_csv(output_path_csv, index=False)
+                    print(f"[{datetime.datetime.now()}] {file} converted to {file.split('.')[0]}.csv")
 
-    print(f'Total number of files converted: {num_files_converted}')
+                    # write dataframe to txt file
+                    df.to_csv(output_path_txt, sep='\t', index=False)
+                    print(f"[{datetime.datetime.now()}] {file} converted to {file.split('.')[0]}.txt")
+
+                    # increment counter for number of files converted
+                    num_csv += 1
+                    num_txt += 1
+
+                except Exception as e:
+                    # print error message if file cannot be converted
+                    print(f"[{datetime.datetime.now()}] Error converting {file}: {e}")
+            
+    # print total number of files converted
+    print(f"\nTotal number of csv files converted: {num_csv}")
+    print(f"Total number of txt files converted: {num_txt}")
+
+# test function with given folder path
+folder_path = 'Data'
+convert_files(folder_path)
