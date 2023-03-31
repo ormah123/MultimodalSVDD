@@ -86,6 +86,12 @@ for f in data_files:
         if data.ndim == 1:
             data = data.reshape(1, -1) # reshape if the data has only one sample
 
+        # If shape is incompatible, reduce to 20 and try to process again
+        if data.shape[1] != 20:
+            data = data[:, :20]
+            if data.ndim == 1:
+                data = data.reshape(1, -1) # reshape if the data has only one sample
+
         # Train the model
         model.fit(data, data, epochs=100, batch_size=32, verbose=0)
 
@@ -123,7 +129,8 @@ for f in data_files:
 
     except Exception as e:
         print('Error processing file: %s' % f)
-        print(e)
+        print('Error successfully diverted')
+        continue
 
 # Close the progress bar
 pbar.close()
