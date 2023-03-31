@@ -1,0 +1,85 @@
+[2023-03-31 12:16:14.954203] mode1faultflatness.xls converted to mode1faultflatness.csv
+[2023-03-31 12:16:15.027217] mode1faultflatness.xls converted to mode1faultflatness.txt
+[2023-03-31 12:16:15.852202] mode1test.xls converted to mode1test.csv
+[2023-03-31 12:16:15.899206] mode1test.xls converted to mode1test.txt
+[2023-03-31 12:16:16.683225] mode1testNEW.xls converted to mode1testNEW.csv
+[2023-03-31 12:16:16.731173] mode1testNEW.xls converted to mode1testNEW.txt
+[2023-03-31 12:16:18.752559] mode1train flatness.xls converted to mode1train flatness.csv
+[2023-03-31 12:16:18.858614] mode1train flatness.xls converted to mode1train flatness.txt
+[2023-03-31 12:16:20.215227] mode1train.xls converted to mode1train.csv
+[2023-03-31 12:16:20.282225] mode1train.xls converted to mode1train.txt
+[2023-03-31 12:16:21.080257] mode2test.xls converted to mode2test.csv
+[2023-03-31 12:16:21.131221] mode2test.xls converted to mode2test.txt
+[2023-03-31 12:16:22.273865] mode2train.xls converted to mode2train.csv
+[2023-03-31 12:16:22.350470] mode2train.xls converted to mode2train.txt
+[2023-03-31 12:16:23.553188] pkx101flatness.xls converted to pkx101flatness.csv
+[2023-03-31 12:16:23.647188] pkx101flatness.xls converted to pkx101flatness.txt
+[2023-03-31 12:16:24.448214] pkx102flatness.xls converted to pkx102flatness.csv
+[2023-03-31 12:16:24.507213] pkx102flatness.xls converted to pkx102flatness.txt
+[2023-03-31 12:16:26.103554] pkx201.xls converted to pkx201.csv
+[2023-03-31 12:16:26.203628] pkx201.xls converted to pkx201.txt
+[2023-03-31 12:16:27.756525] pkx202.xls converted to pkx202.csv
+[2023-03-31 12:16:27.873522] pkx202.xls converted to pkx202.txt
+[2023-03-31 12:16:29.462674] pkx301.xls converted to pkx301.csv
+[2023-03-31 12:16:29.568667] pkx301.xls converted to pkx301.txt
+[2023-03-31 12:16:31.134336] pkx302.xls converted to pkx302.csv
+[2023-03-31 12:16:31.238181] pkx302.xls converted to pkx302.txt
+[2023-03-31 12:16:32.950695] mode4.xls converted to mode4.csv
+[2023-03-31 12:16:33.042749] mode4.xls converted to mode4.txt
+[2023-03-31 12:16:33.854518] mode4test.xls converted to mode4test.csv
+[2023-03-31 12:16:33.897488] mode4test.xls converted to mode4test.txt
+[2023-03-31 12:16:35.066513] mode4train.xls converted to mode4train.csv
+[2023-03-31 12:16:35.129518] mode4train.xls converted to mode4train.txt
+
+Total number of csv files converted: 16
+Total number of txt files converted: 16
+Detected 16 csv files in the Data folder and subfolders
+Processed files:   0%|                                                                                                                               | 0/16 [00:00<?, ?it/s]Error processing file: Data\1.56mm\mode1faultflatness.csv
+in user code:
+
+    File "C:\Users\Alec\AppData\Local\Programs\Python\Python39\lib\site-packages\keras\engine\training.py", line 1284, in train_function  *
+        return step_function(self, iterator)
+    File "C:\Users\Alec\AppData\Local\Programs\Python\Python39\lib\site-packages\keras\engine\training.py", line 1268, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\Alec\AppData\Local\Programs\Python\Python39\lib\site-packages\keras\engine\training.py", line 1249, in run_step  **
+        outputs = model.train_step(data)
+    File "C:\Users\Alec\AppData\Local\Programs\Python\Python39\lib\site-packages\keras\engine\training.py", line 1050, in train_step
+        y_pred = self(x, training=True)
+    File "C:\Users\Alec\AppData\Local\Programs\Python\Python39\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+        raise e.with_traceback(filtered_tb) from None
+    File "C:\Users\Alec\AppData\Local\Programs\Python\Python39\lib\site-packages\keras\engine\input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+
+    ValueError: Input 0 of layer "sequential" is incompatible with the layer: expected shape=(None, 20), found shape=(None, 36)
+
+Error processing file: Data\1.56mm\mode1test.csv
+Creating variables on a non-first call to a function decorated with tf.function.
+Error processing file: Data\1.56mm\mode1testNEW.csv
+'NoneType' object is not callable
+Error processing file: Data\1.56mm\mode1train flatness.csv
+'NoneType' object is not callable
+Error processing file: Data\1.56mm\mode1train.csv
+'NoneType' object is not callable
+Error processing file: Data\2.7mm\mode2test.csv
+'NoneType' object is not callable
+Error processing file: Data\2.7mm\mode2train.csv
+'NoneType' object is not callable
+Error processing file: Data\2.7mm\pkx101flatness.csv
+'NoneType' object is not callable
+Error processing file: Data\2.7mm\pkx102flatness.csv
+'NoneType' object is not callable
+Error processing file: Data\3.95mm\pkx201.csv
+'NoneType' object is not callable
+Error processing file: Data\3.95mm\pkx202.csv
+'NoneType' object is not callable
+Error processing file: Data\3.95mm\pkx301.csv
+'NoneType' object is not callable
+Error processing file: Data\3.95mm\pkx302.csv
+'NoneType' object is not callable
+Error processing file: Data\5.00mm\mode4.csv
+'NoneType' object is not callable
+Error processing file: Data\5.00mm\mode4test.csv
+'NoneType' object is not callable
+Error processing file: Data\5.00mm\mode4train.csv
+'NoneType' object is not callable
+Processed files:   0%| 
