@@ -119,7 +119,7 @@ for f in data_files:
         # Save the anomalies as an image in the Images folder
         fig, ax = plt.subplots(figsize=(8, 6))
         ax.plot(data, label='Data')
-        ax.scatter(anomalies, anomalies, label='Anomalies', color='red')
+        ax.scatter(anomalies, anomalies, label='Anomalies', color='green')
         ax.set_xlabel('Time')
         ax.set_ylabel('Value')
         ax.set_title('Anomalies Detected')
